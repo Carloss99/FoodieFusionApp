@@ -14,9 +14,13 @@ const Main = (props) => {
     const getMenuItems = async () => {
         const response = await fetch(URL)
         const data = await response.json()
-        console.log(data)
+        
         setMenuItems(data)
     }
+
+    
+
+
     useEffect(() => {getMenuItems()}, [])
     
 
@@ -31,7 +35,7 @@ const Main = (props) => {
             <Route path='/' element={<Index  items={menuItems}/>}/>
 
             {/* Route to show page */}
-            <Route path='id' element={<Show/>}/>
+            <Route path='/:id' element={<Show items={menuItems} />}/>
 
         </Routes>
     )

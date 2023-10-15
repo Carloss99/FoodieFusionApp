@@ -2,7 +2,7 @@ import MenuItem from '../components/MenuItem'
 
 const Index = (props) =>{
     const menuitems = props.items
-    console.log(menuitems)
+    
     const loaded = () => {
         return(
             menuitems.map((item) => {
