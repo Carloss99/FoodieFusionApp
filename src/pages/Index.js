@@ -17,9 +17,9 @@ const Index = (props) =>{
     
 
     return(
-        <>
+        <div className='menu'>
             {menuitems ? loaded() : <h1>Loading</h1>}
-       </>
+       </div>
     )
 }
 

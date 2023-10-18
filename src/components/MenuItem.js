@@ -5,7 +5,7 @@ const MenuItem = (props) => {
    
 
     return(  
-        <div className='menu'>
+        <div className='menu-item'>
             <Link to={`/${props.item._id}`}>
                 <h2>{props.item.name}</h2>
             </Link>

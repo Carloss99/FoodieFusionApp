@@ -26,7 +26,11 @@ const Main = (props) => {
         console.log(data)
         setReviews(data)
     }
+
     
+    
+
+
 
 
     useEffect(() => {getMenuItems()}, [])
