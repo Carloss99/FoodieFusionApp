@@ -1,7 +1,8 @@
 import MenuItem from '../components/MenuItem'
 
 const Index = (props) =>{
-    const menuitems = props.items
+    const menuitems = props.menuitems
+    
     
     const loaded = () => {
         return(
@@ -17,7 +18,7 @@ const Index = (props) =>{
 
     return(
         <>
-            {props.items ? loaded() : <h1>Loading</h1>}
+            {menuitems ? loaded() : <h1>Loading</h1>}
        </>
     )
 }
