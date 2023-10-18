@@ -10,14 +10,14 @@ const Show = (props) => {
     
 
     const loaded = () => {
-        
+
         const item = props.items.find((item) =>{return (
                 item._id === params.id
                 )
         })
         
         return(
-            <div>
+            <div className='show-page-container'>
                 <h3>{item.name}</h3>
                 <h5>Price: {item.price}</h5>
                 <Reviews review={reviews}/>

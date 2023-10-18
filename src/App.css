@@ -1,21 +1,31 @@
 
 
 .App{
-  width: 70vw;
   height: 100vh;
   margin: 0 auto;
   padding: 0px;
-  border-radius: 20px;
-  background-color: #8ABDD7;
 }
 
 .header{
   text-align: center;
-  padding: 20px;
+  font-family: 'Luxurious Script', cursive;
+  background-color: black;
+  color: white;
+  height: 2em;
+  margin: auto;
 }
 
-.menu-item{
-  background-color: white;
-  padding: 5px 10px;
-  width: 100%;
+.menu{
+  width:90%;
+  margin: auto;
+}
+
+.show-page-container{
+  width:90%;
+  margin: auto;
+}
+
+.reviews{
+  border-top: 1px solid black;
+  
 }
