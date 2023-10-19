@@ -1,12 +1,15 @@
 import {useParams, Link} from 
 'react-router-dom'
+import {useEffect} from 'react'
 import Reviews from '../components/Reviews'
+import NewReviewForm from '../components/NewReviewForm'
 
 
 
 const Show = (props) => {
     const params = useParams()
     const reviews = props.reviews
+    console.log(reviews)
     
 
     const loaded = () => {
@@ -27,10 +30,16 @@ const Show = (props) => {
                     <h4>Back</h4>
                 </Link>
 
+
+                <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll}/>
+
                 
             </div>
         )
     }
+
+
+   
 
 
     return(
