@@ -27,8 +27,35 @@ const Main = (props) => {
         setReviews(data)
     }
 
+    //function that creates new review
+    const addReview = async (review) => {
+        const response = await fetch(URL + '/reviews', {
+            method:'post',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(review)
+        })
+        const newReview = await response.json()
+        setReviews(prev => [...prev, newReview])
+
+    }
     
-    
+    //function that deletes review by id
+    const deleteReview = async (id) => {
+        await fetch(URL +'/reviews/'+ id, {
+            method:'delete'
+        })
+        getReviews()
+    }
+
+    //function that deletes all reviews
+    const deleteAll = async () => {
+        await fetch(URL + '/reviews', {
+            method:'delete'
+        })
+        getReviews()
+    }
 
 
 
@@ -48,7 +75,7 @@ const Main = (props) => {
             <Route path='/' element={<Index  menuitems={menuItems} />}/>
 
             {/* Route to show page */}
-            <Route path='/:id' element={<Show items={menuItems} reviews={reviews}/>}/>
+            <Route path='/:id' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteAll={deleteAll}/>}/>
 
         </Routes>
     )
