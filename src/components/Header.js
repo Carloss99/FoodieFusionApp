@@ -1,6 +1,20 @@
+import { Link } from "react-router-dom"
+
 const Header = (props) => {
     return(
-        <h1 className='header'>Foodie Fusion</h1>
+        <div className="header">
+            <nav>
+                <Link to="/">
+                    <div>Home</div>
+                </Link>
+                <Link to="/reviews">
+                    <div>Reviews</div>
+                </Link>
+                <Link to="/userreviews">
+                    <div>Profile</div>
+                </Link>
+            </nav>
+        </div>
     )
 }
 
