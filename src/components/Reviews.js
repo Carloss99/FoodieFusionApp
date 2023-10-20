@@ -1,18 +1,18 @@
 const Reviews = (props) => {
-    console.log(props.review)
+    console.log(props.reviews)
 
     const loaded = () => {
         return(
             <div className='reviews'>
-                <h2>Reviews</h2>
-                <div>{props.review[0].text} {props.review[0].rating}</div>
+                
+                <div>{props.reviews.text} {props.reviews.rating}</div>
             </div>
         )
     }
 
     return(
         <div>
-        {props.review ? loaded() : <h1>loading</h1>}
+        {props.reviews ? loaded() : <h1>loading</h1>}
         </div>
     )
 }
