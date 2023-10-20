@@ -11,6 +11,7 @@ const Show = (props) => {
     const reviews = props.reviews
     console.log(reviews)
     
+    
 
     const loaded = () => {
 
@@ -23,7 +24,13 @@ const Show = (props) => {
             <div className='show-page-container'>
                 <h3>{item.name}</h3>
                 <h5>Price: {item.price}</h5>
-                <Reviews review={reviews}/>
+                
+                {reviews.map((review) => {
+            return(
+                <Reviews reviews={review} />
+            )
+        })}
+                
 
 
                 <Link to='/'>
@@ -50,3 +57,13 @@ const Show = (props) => {
 }
 
 export default Show
+
+
+//temporary
+// app.delete('/api/reviews', async (req,res) => {
+//     try{
+//       res.json(await Review.deleteMany({}))
+//     }catch(err) {
+//       res.send(400).json(err)
+//     }
+//   })
