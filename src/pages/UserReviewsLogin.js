@@ -94,45 +94,45 @@ const UserReviewsLogin = () => {
 
             {/* if user is logged in, show the logout button */}
             {toggleLogout ?
-                <button onClick={handleLogout} class='logoutBtn'>Logout</button> :
+                <button onClick={handleLogout} className='logoutBtn'>Logout</button> :
 
                 //else, if user is logged out, show this div with login form or registration form
-                <div class='appFormDiv'>
+                <div className='appFormDiv'>
 
                     {/* if toggleLogin is true, aka user is not logged in, show the login form div */}
                     {toggleLogin ?
                         <div className="formContainer">
-                            <h1 class='formTitle'>Login</h1>
+                            <h1 className='formTitle'>Login</h1>
                             {/* when user presses login, it invokes handleLogin() */}
-                            <form onSubmit={handleLogin} class='inputForm'>
-                                <input type='text' placeholder='username' class='textInput' onChange={(event) => { setUsername(event.target.value) }} />
-                                <input type='password' placeholder='password' class='textInput' onChange={(event) => { setPassword(event.target.value) }} />
+                            <form onSubmit={handleLogin} className='inputForm'>
+                                <input type='text' placeholder='username' className='textInput' onChange={(event) => { setUsername(event.target.value) }} />
+                                <input type='password' placeholder='password' className='textInput' onChange={(event) => { setPassword(event.target.value) }} />
                                 {toggleError ?
-                                    <h5 class='errorMsg'>{errorMessage}</h5>
+                                    <h5 className='errorMsg'>{errorMessage}</h5>
                                     :
                                     null
                                 }
-                                <input type='submit' value='Login' class='submitBtn' />
+                                <input type='submit' value='Login' className='submitBtn' />
                             </form>
                         </div>
                         :
                         // new user registration form
                         // the button below "need an account" will show with the login form. It invokes handleToggleForm() which changes toggleLogin to false
-                        <div className="App" class='formContainer'>
-                            <h1 class='formTitle'>Create an Account</h1>
-                            <form onSubmit={handleCreateUser} class='inputForm'>
-                                <input type='text' placeholder='username' class='textInput' onChange={(event) => { setUsername(event.target.value) }} />
-                                <input type='password' placeholder='password' class='textInput' onChange={(event) => { setPassword(event.target.value) }} />
+                        <div className="App" id='formContainer'>
+                            <h1 className='formTitle'>Create an Account</h1>
+                            <form onSubmit={handleCreateUser} className='inputForm'>
+                                <input type='text' placeholder='username' className='textInput' onChange={(event) => { setUsername(event.target.value) }} />
+                                <input type='password' placeholder='password' className='textInput' onChange={(event) => { setPassword(event.target.value) }} />
                                 {toggleError ?
-                                    <h5 class='errorMsg'>{errorMessage}</h5>
+                                    <h5 className='errorMsg'>{errorMessage}</h5>
                                     :
                                     null
                                 }
-                                <input type='submit' value='Register' class='submitBtn' />
+                                <input type='submit' value='Register' className='submitBtn' />
                             </form>
                         </div>
                     }
-                    <button onClick={handleToggleForm} class='accountBtn'>{toggleLogin ? 'Need an account?' : 'Already have an account?'}</button>
+                    <button onClick={handleToggleForm} className='accountBtn'>{toggleLogin ? 'Need an account?' : 'Already have an account?'}</button>
                 </div>
             }
 
