@@ -15,7 +15,7 @@ const Main = (props) => {
     const getMenuItems = async () => {
         const response = await fetch(URL + '/menu-items')
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setMenuItems(data)
     }
 
@@ -23,7 +23,7 @@ const Main = (props) => {
     const getReviews = async () => {
         const response = await fetch(URL + '/reviews')
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setReviews(data)
     }
 
@@ -66,7 +66,7 @@ const Main = (props) => {
 
 
 
-
+    const Loaded = () => {
     return(
 
         <Routes>
@@ -74,11 +74,20 @@ const Main = (props) => {
             {/* Route to index page  */}
             <Route path='/' element={<Index  menuitems={menuItems} />}/>
 
+            {/* Route to show page to view all reviews */}
+            <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteAll={deleteAll}/>}/>
+
             {/* Route to show page */}
             <Route path='/:id' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteAll={deleteAll}/>}/>
 
+            {/* Route to view individual reviews
+            <Route path='/:id' element={<SingleReviewShow reviews={reviews} deleteReview={deleteReview}/>}/> */}
+
         </Routes>
     )
+     }
+
+    return reviews && menuItems ? Loaded() : <h1>Still loading</h1>
 }
 
 export default Main

@@ -1,36 +1,38 @@
-import {useParams, Link} from 
-'react-router-dom'
-import {useEffect} from 'react'
+import { useParams, Link } from
+    'react-router-dom'
+import { useEffect } from 'react'
 import Reviews from '../components/Reviews'
 import NewReviewForm from '../components/NewReviewForm'
 
-
+//this page is showing ALL reviews
 
 const Show = (props) => {
     const params = useParams()
+    const id = params.id
     const reviews = props.reviews
-    console.log(reviews)
-    
-    
+    // console.log(reviews)
+
+
 
     const loaded = () => {
 
-        const item = props.items.find((item) =>{return (
+        const item = props.reviews.find((item) => {
+            return (
                 item._id === params.id
-                )
-        })
-        
-        return(
-            <div className='show-page-container'>
-                <h3>{item.name}</h3>
-                <h5>Price: {item.price}</h5>
-                
-                {reviews.map((review) => {
-            return(
-                <Reviews reviews={review} />
             )
-        })}
-                
+        })
+
+        return (
+            <div className='show-page-container'>
+                {/* <h3>{item.name}</h3>
+                <h5>Price: {item.price}</h5> */}
+
+                {reviews.map((review) => {
+                    return (
+                        <Reviews reviews={review} />
+                    )
+                })}
+
 
 
                 <Link to='/'>
@@ -38,18 +40,18 @@ const Show = (props) => {
                 </Link>
 
 
-                <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll}/>
+                <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll} />
 
-                
+
             </div>
         )
     }
 
 
-   
 
 
-    return(
+
+    return (
         <>
             {props.items ? loaded() : <h1>Loading</h1>}
         </>

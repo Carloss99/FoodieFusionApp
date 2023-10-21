@@ -4,28 +4,88 @@
   height: 100vh;
   margin: 0 auto;
   padding: 0px;
+  background-image: url("https://images.unsplash.com/photo-1615800098799-0ccb261b1f92?auto=format&fit=crop&q=80&w=2810&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
+.App h1{
+  text-align: center;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding-top: 20px;
+  color: red;
+}
+
+.App h3{
+  text-align: center;
+  font-family: 'Gabarito', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Header.js */
 .header{
   text-align: center;
   font-family: 'Luxurious Script', cursive;
-  background-color: black;
   color: white;
   height: 2em;
   margin: auto;
+  margin-bottom: 25px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+.header div {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1.5rem;
 }
 
 .menu{
   width:90%;
   margin: auto;
+  color: #353839;
 }
 
+/* MenuItem.js */
+.menu-item{
+  padding-left: 15px;
+}
+
+.menu-item a{
+  color: #353839;
+  text-decoration: none;
+  font-family: 'Gabarito', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Show.js */
 .show-page-container{
+  padding-top: 20px;
   width:90%;
   margin: auto;
 }
 
+/* Reviews.js */
 .reviews{
   border-top: 1px solid black;
   
+}
+
+/* NewReviewForm.js */
+.newReviewFrom{
+  width: 40rem;
+  padding-left: 20px;
+}
+.newReviewTextbox{
+  width: 45em;
+  height: 20vh;
+  border-radius: 10px;
+}
+.newReviewTitle{
+  width: 45em;
+  height: 2em;
+  border-radius: 5px;
 }
