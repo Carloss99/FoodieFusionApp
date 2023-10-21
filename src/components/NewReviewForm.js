@@ -23,13 +23,18 @@ const handleSubmit = (e) => {
             <h3>Add New Review</h3>
 
             {/* form to create new review */}
-            <form onSubmit={handleSubmit}> 
+            <form onSubmit={handleSubmit} className='newReviewFrom'> 
+                <label>Restaurant Name:</label><br/>
+                <input type='text' name="restaurantName" onChange={handleChange} className="newReviewTitle"/><br/>
 
-                <label>What are your thoughts? </label>
-                <input type='text' name='text' onChange={handleChange} />
+                <label>What's the name of the dish you ate?</label><br/>
+                <input type="text" name="menuItemName" onChange={handleChange} className="newReviewTitle"/><br/>
+
+                <label>What are your thoughts? </label> <br/>
+                <input type='text' name='text' onChange={handleChange} className='newReviewTextbox' maxLength="420"/> <br/>
 
                 <label>Rating: </label>
-                <input type='number' min='0' max='5' name='rating' onChange={handleChange} />
+                <input type='number' min='0' max='5' name='rating' onChange={handleChange} /> <br/>
 
                 <input type='submit' />
             </form>

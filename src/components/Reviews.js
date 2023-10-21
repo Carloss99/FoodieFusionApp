@@ -1,3 +1,5 @@
+// this is a page that shows ONE review
+
 const Reviews = (props) => {
     console.log(props.reviews)
 
@@ -5,7 +7,11 @@ const Reviews = (props) => {
         return(
             <div className='reviews'>
                 
-                <div>{props.reviews.text} {props.reviews.rating}</div>
+                <div>
+                    Restaurant: {props.reviews.restaurantName} <br/>
+                    Meal: {props.reviews.text} <br/>
+                    rating: {props.reviews.rating}
+                </div>
             </div>
         )
     }
