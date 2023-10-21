@@ -9,27 +9,28 @@ import NewReviewForm from '../components/NewReviewForm'
 const Show = (props) => {
     const params = useParams()
     const id = params.id
+
+    //varaible that holds all reviews
     const reviews = props.reviews
-    // console.log(reviews)
-
-
+    console.log(reviews)
+    //variable that holds specific menu item
+    const menuItem = props.items.find((item)=>{return(item._id === params.id)})
+    console.log(menuItem)
+    
+    //reviews filtered by menu item name
+    const filteredReviews = reviews.filter(review =>  review.menuItemName === menuItem.name)
 
     const loaded = () => {
 
-        const item = props.reviews.find((item) => {
-            return (
-                item._id === params.id
-            )
-        })
-
         return (
             <div className='show-page-container'>
-                {/* <h3>{item.name}</h3>
-                <h5>Price: {item.price}</h5> */}
 
-                {reviews.map((review) => {
+                <h3>{menuItem.name}</h3>
+                <h5>Price: {menuItem.price}</h5>
+
+                {filteredReviews.map((review) => {
                     return (
-                        <Reviews reviews={review} />
+                        <Reviews review={review} deleteReview={props.deleteReview} editReview={props.editReview}/>
                     )
                 })}
 
