@@ -2,6 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Index from '../pages/Index'
 import Show from '../pages/Show'
+import Edit from '../pages/Edit'
 
 const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api' //backend URL
 
@@ -40,6 +41,17 @@ const Main = (props) => {
         setReviews(prev => [...prev, newReview])
 
     }
+
+    //function that updates review
+    const editReview = async (review, id) =>{
+        await fetch(URL + '/reviews/' + id + '/edit', {
+            method:'put',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+    }
     
     //function that deletes review by id
     const deleteReview = async (id) => {
@@ -50,12 +62,12 @@ const Main = (props) => {
     }
 
     //function that deletes all reviews
-    const deleteAll = async () => {
-        await fetch(URL + '/reviews', {
-            method:'delete'
-        })
-        getReviews()
-    }
+    // const deleteAll = async () => {
+    //     await fetch(URL + '/reviews', {
+    //         method:'delete'
+    //     })
+    //     getReviews()
+    // }
 
 
 
@@ -75,11 +87,13 @@ const Main = (props) => {
             <Route path='/' element={<Index  menuitems={menuItems} />}/>
 
             {/* Route to show page to view all reviews */}
-            <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteAll={deleteAll}/>}/>
+            <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} />}/>
 
             {/* Route to show page */}
-            <Route path='/:id' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteAll={deleteAll}/>}/>
+            <Route path='/:id' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
 
+            {/* {Route to show edit page} */}
+            <Route path='/edit/:id' element={<Edit/>}/>
             {/* Route to view individual reviews
             <Route path='/:id' element={<SingleReviewShow reviews={reviews} deleteReview={deleteReview}/>}/> */}
 

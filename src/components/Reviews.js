@@ -1,24 +1,39 @@
 // this is a page that shows ONE review
+import { useNavigate } from "react-router-dom"
 
 const Reviews = (props) => {
-    console.log(props.reviews)
+    const navigate = useNavigate()
+    console.log(props.review)
+
+    const handleDelete = () => {
+        props.deleteReview(props.review._id)
+
+
+    }
+
+    const handleEdit= () => {
+        navigate(`/edit/${props.review._id}`)
+    }
 
     const loaded = () => {
         return(
             <div className='reviews'>
                 
                 <div>
-                    Restaurant: {props.reviews.restaurantName} <br/>
-                    Meal: {props.reviews.text} <br/>
-                    rating: {props.reviews.rating}
+                    Restaurant: {props.review.restaurantName} <br/>
+                    Meal: {props.review.text} <br/>
+                    rating: {props.review.rating}
                 </div>
+
+                <button onClick={handleDelete}>remove</button>
+                <button onClick={handleEdit}>Edit</button>
             </div>
         )
     }
 
     return(
         <div>
-        {props.reviews ? loaded() : <h1>loading</h1>}
+        {props.review ? loaded() : <h1>loading</h1>}
         </div>
     )
 }
