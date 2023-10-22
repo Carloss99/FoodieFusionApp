@@ -1,12 +1,19 @@
 import {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+import NewReviewForm from '../components/NewReviewForm'
 
-const UserReviewsLogin = () => {
+const UserReviewsLogin = (props) => {
     // create state variables
+    // when user is logged in, toggleLogin = false, toggleLogout = true (show logout button)
+    // when user is logged out, toggleLogin = true, toggleLogout = false
     const [toggleLogin, setToggleLogin] = useState(true)
     const [toggleError, setToggleError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+
+    //toggleLogout is to show login button. True is showing, false is not showing
     const [toggleLogout, setToggleLogout] = useState(false)
+    
     const [currentUser, setCurrentUser] = useState({})
 
     const [username, setUsername] = useState('')
@@ -132,6 +139,7 @@ const UserReviewsLogin = () => {
                             </form>
                         </div>
                     }
+
                     <button onClick={handleToggleForm} className='accountBtn'>{toggleLogin ? 'Need an account?' : 'Already have an account?'}</button>
                 </div>
             }
@@ -141,11 +149,18 @@ const UserReviewsLogin = () => {
             {currentUser.username ?
                 <div className="loggedinDiv">
                     <h2>User Reviews Shown Once Logged In</h2>
-                    <h4>Profile Info</h4>
+                    <h4>{currentUser.username}</h4>
+
+                    
+
+                    <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll} />
                 </div>
                 : null
             }
 
+                <Link to='/'>
+                    <h4>Back</h4>
+                </Link>
         </div>
     )
 }

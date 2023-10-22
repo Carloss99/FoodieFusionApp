@@ -10,7 +10,7 @@ const Header = (props) => {
                 <Link to="/reviews">
                     <div>Reviews</div>
                 </Link>
-                <Link to="/userreviews/login">
+                <Link to="/profile">
                     <div>Profile</div>
                 </Link>
             </nav>

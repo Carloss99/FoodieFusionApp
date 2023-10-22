@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import Index from '../pages/Index'
 import Show from '../pages/Show'
 import Edit from '../pages/Edit'
+import UserReviewsLogin from '../pages/UserReviewsLogin'
 
 const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api' //backend URL
 
@@ -97,6 +98,8 @@ const Main = (props) => {
             {/* Route to view individual reviews
             <Route path='/:id' element={<SingleReviewShow reviews={reviews} deleteReview={deleteReview}/>}/> */}
 
+            {/* Route to user profile page with just their reviews */}
+            <Route path='/profile' element={<UserReviewsLogin reviews={reviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
         </Routes>
     )
      }
