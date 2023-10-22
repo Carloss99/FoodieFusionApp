@@ -44,7 +44,7 @@ const Main = (props) => {
 
     //function that updates review
     const editReview = async (review, id) =>{
-        await fetch(URL + '/reviews/' + id + '/edit', {
+        await fetch(URL + '/reviews/' + id , {
             method:'put',
             headers:{
                 'Content-Type': 'application/json'
@@ -90,10 +90,10 @@ const Main = (props) => {
             <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} />}/>
 
             {/* Route to show page */}
-            <Route path='/:id' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
+            <Route path='/:id' element={<Show items={menuItems} reviews={reviews} getReviews={getReviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
 
             {/* {Route to show edit page} */}
-            <Route path='/edit/:id' element={<Edit/>}/>
+            <Route path='/edit/:id' element={<Edit editReview={editReview} reviews={reviews} menuItems={menuItems}/>}/>
             {/* Route to view individual reviews
             <Route path='/:id' element={<SingleReviewShow reviews={reviews} deleteReview={deleteReview}/>}/> */}
 
