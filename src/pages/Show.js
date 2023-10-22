@@ -20,6 +20,10 @@ const Show = (props) => {
     //reviews filtered by menu item name
     const filteredReviews = reviews.filter(review =>  review.menuItemName === menuItem.name)
 
+
+    useEffect(() => {props.getReviews()}, [])
+
+    
     const loaded = () => {
 
         return (
