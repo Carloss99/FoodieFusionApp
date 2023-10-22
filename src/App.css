@@ -1,23 +1,27 @@
+/* App.css */
 
-
-.App{
+.App {
   height: 100vh;
   margin: 0 auto;
-  padding: 0px;
+  padding: 0;
   background-image: url("https://images.unsplash.com/photo-1615800098799-0ccb261b1f92?auto=format&fit=crop&q=80&w=2810&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover; /* Adjusts the background image size to cover the entire container */
+  background-position: center; /* Centers the background image within the container */
+
 }
 
-.App h1{
+.App h1 {
   text-align: center;
   font-family: 'Gabarito', sans-serif;
   font-weight: bold;
+  font-size: 24px;
   letter-spacing: 5px;
   text-transform: uppercase;
   padding-top: 20px;
   color: red;
 }
 
-.App h3{
+.App h3 {
   text-align: center;
   font-family: 'Gabarito', sans-serif;
   text-transform: uppercase;
@@ -25,7 +29,7 @@
 }
 
 /* Header.js */
-.header{
+.header {
   text-align: center;
   font-family: 'Luxurious Script', cursive;
   color: white;
@@ -42,18 +46,18 @@
   font-size: 1.5rem;
 }
 
-.menu{
-  width:90%;
+.menu {
+  width: 90%;
   margin: auto;
   color: #353839;
 }
 
 /* MenuItem.js */
-.menu-item{
+.menu-item {
   padding-left: 15px;
 }
 
-.menu-item a{
+.menu-item a {
   color: #353839;
   text-decoration: none;
   font-family: 'Gabarito', sans-serif;
@@ -62,30 +66,89 @@
 }
 
 /* Show.js */
-.show-page-container{
+.show-page-container {
   padding-top: 20px;
-  width:90%;
+  width: 90%;
   margin: auto;
+  background-color: beige;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 /* Reviews.js */
-.reviews{
+.reviews {
   border-top: 1px solid black;
-  
 }
 
 /* NewReviewForm.js */
-.newReviewFrom{
+.newReviewForm {
   width: 40rem;
   padding-left: 20px;
 }
-.newReviewTextbox{
+
+.newReviewTextbox {
   width: 45em;
   height: 20vh;
   border-radius: 10px;
 }
-.newReviewTitle{
+
+.newReviewTitle {
   width: 45em;
   height: 2em;
   border-radius: 5px;
+}
+
+
+
+/* Buttons */
+.button {
+  background-color: #007ACC;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #005BB7;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+
+/* Forms */
+.form-container {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .button {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 10px;
+  }
 }

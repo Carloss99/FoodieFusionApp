@@ -18,13 +18,22 @@ const Show = (props) => {
     console.log(menuItem)
     
     //reviews filtered by menu item name
-    const filteredReviews = reviews.filter(review =>  review.menuItemName === menuItem.name)
+    // const filteredReviews = reviews.filter(review =>  review.menuItemName === menuItem.name)
+    const filteredReviews = menuItem ? reviews.filter(review => review.menuItemName === menuItem.name) : [];
 
 
-    useEffect(() => {props.getReviews()}, [])
+
+    // useEffect(() => {props.getReviews()}, [])
+    useEffect(() => {
+        props.getReviews?.();
+    });
+    
 
     
     const loaded = () => {
+        if (!menuItem) {
+            return <h1>Item not found</h1>;
+        }
 
         return (
             <div className='show-page-container'>
