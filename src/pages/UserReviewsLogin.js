@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Edit from './Edit'
 import NewReviewForm from '../components/NewReviewForm'
 
 
-const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
+// const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
+const URL = 'http://localhost:4000/api/reviews'
 
 const UserReviewsLogin = (props) => {
+
     // create state variables
     // when user is logged in, toggleLogin = false, toggleLogout = true (show logout button)
     // when user is logged out, toggleLogin = true, toggleLogout = false
@@ -83,9 +86,9 @@ const UserReviewsLogin = (props) => {
             const response = await fetch(URL + "/user/" + currentUser.username)
             const data = await response.json()
             setUserReviews(data)
-            console.log(userReviews)
         }
     }
+
 
     //this functions takes the onClick event listener. It sets the currentUser state variable
     const handleLogin = (event) => {
@@ -112,10 +115,10 @@ const UserReviewsLogin = (props) => {
         })
     }
 
-    useEffect(() => { getUserReviews() })
+    useEffect(() => { getUserReviews() },[currentUser])
 
     return (
-        <div className="userReviewDiv">
+        <div className="userProfileDiv">
 
             {/* if user is logged in, show the logout button */}
             {toggleLogout ?
@@ -171,7 +174,13 @@ const UserReviewsLogin = (props) => {
 
                     {userReviews ?
                         userReviews.map((x) => {
-                            return (<p>{x.menuItemName}</p>)
+                            return (
+                            <div className="userReviewsDiv">
+                                {x.restaurantName} <br/>
+                                {x.menuItemName} <br/>
+                                {x.text} <br/>
+                            </div>
+                            )
                         })
                         : <p>Loading...</p>
                     }

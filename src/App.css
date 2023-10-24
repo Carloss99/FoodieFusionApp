@@ -152,3 +152,10 @@
     padding: 10px;
   }
 }
+
+.userProfileDiv{
+  margin:  0 3rem;
+}
+.userReviewsDiv{
+  padding: 15px;
+}
