@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 const Reviews = (props) => {
     const navigate = useNavigate()
-    console.log(props.review)
+    // console.log(props.review)
 
     const handleDelete = () => {
         props.deleteReview(props.review._id)

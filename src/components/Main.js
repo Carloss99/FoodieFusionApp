@@ -12,6 +12,7 @@ const Main = (props) => {
     //Sate variables to hold menu items
     const[menuItems, setMenuItems] = useState(null)
     const[reviews, setReviews] = useState(null)
+    
 
     //function that fetches menu items
     const getMenuItems = async () => {
@@ -87,8 +88,8 @@ const Main = (props) => {
             {/* Route to index page  */}
             <Route path='/' element={<Index  menuitems={menuItems} />}/>
 
-            {/* Route to show page to view all reviews */}
-            <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} />}/>
+            {/* Route to show page to view all reviews
+            <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} />}/> */}
 
             {/* Route to show page */}
             <Route path='/:id' element={<Show items={menuItems} reviews={reviews} getReviews={getReviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>

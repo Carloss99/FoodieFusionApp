@@ -12,10 +12,10 @@ const Show = (props) => {
 
     //varaible that holds all reviews
     const reviews = props.reviews
-    console.log(reviews)
+    // console.log(reviews)
     //variable that holds specific menu item
     const menuItem = props.items.find((item)=>{return(item._id === params.id)})
-    console.log(menuItem)
+    // console.log(menuItem)
     
     //reviews filtered by menu item name
     // const filteredReviews = reviews.filter(review =>  review.menuItemName === menuItem.name)

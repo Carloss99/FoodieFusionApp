@@ -1,7 +1,10 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NewReviewForm from '../components/NewReviewForm'
+
+
+const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
 
 const UserReviewsLogin = (props) => {
     // create state variables
@@ -13,11 +16,13 @@ const UserReviewsLogin = (props) => {
 
     //toggleLogout is to show login button. True is showing, false is not showing
     const [toggleLogout, setToggleLogout] = useState(false)
-    
+
     const [currentUser, setCurrentUser] = useState({})
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    const [userReviews, setUserReviews] = useState("")
 
     // function for the toggleError state variable
     // if toggleLogin is true aka user is logged in, the login form will not show
@@ -52,26 +57,37 @@ const UserReviewsLogin = (props) => {
         event.preventDefault()
         event.currentTarget.reset()
         let userObj = {
-          username: username,
-          password: password
+            username: username,
+            password: password
         }
         setUsername('')
         setPassword('')
         axios.post('http://localhost:4000/api/userreviews/createaccount', userObj).then((response) => {
-          if(response.data.username){
-            console.log(response);
-            setToggleError(false)
-            setErrorMessage('')
-            setCurrentUser(response.data)
-            handleToggleLogout()
-          } else {
-            setErrorMessage(response.data)
-            setToggleError(true)
-          }
+            if (response.data.username) {
+                console.log(response);
+                setToggleError(false)
+                setErrorMessage('')
+                setCurrentUser(response.data)
+                handleToggleLogout()
+            } else {
+                setErrorMessage(response.data)
+                setToggleError(true)
+            }
         })
-      }
-      
-    //this functions takes the onClick event listener. It sets the currentUser state variable to ...
+    }
+
+    //function to fetch data from get route user/:userID
+    const getUserReviews = async () => {
+        if (currentUser.username) {
+            console.log("this the current user: " + currentUser.username)
+            const response = await fetch(URL + "/user/" + currentUser.username)
+            const data = await response.json()
+            setUserReviews(data)
+            console.log(userReviews)
+        }
+    }
+
+    //this functions takes the onClick event listener. It sets the currentUser state variable
     const handleLogin = (event) => {
         event.preventDefault()
         event.currentTarget.reset()
@@ -83,18 +99,20 @@ const UserReviewsLogin = (props) => {
         setPassword('')
         axios.put('http://localhost:4000/api/userreviews/login', userObj).then((response) => {
             if (response.data.username) {
-                console.log(response);
+                // console.log(response);
                 setToggleError(false)
                 setErrorMessage('')
                 setCurrentUser(response.data)
                 handleToggleLogout()
             } else {
-                console.log(response);
+                // console.log(response);
                 setToggleError(true)
                 setErrorMessage(response.data)
             }
         })
     }
+
+    useEffect(() => { getUserReviews() })
 
     return (
         <div className="userReviewDiv">
@@ -151,16 +169,21 @@ const UserReviewsLogin = (props) => {
                     <h2>User Reviews Shown Once Logged In</h2>
                     <h4>{currentUser.username}</h4>
 
-                    
+                    {userReviews ?
+                        userReviews.map((x) => {
+                            return (<p>{x.menuItemName}</p>)
+                        })
+                        : <p>Loading...</p>
+                    }
 
-                    <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll} />
+                    <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll} currentUser={currentUser} />
                 </div>
                 : null
             }
 
-                <Link to='/'>
-                    <h4>Back</h4>
-                </Link>
+            <Link to='/'>
+                <h4>Back</h4>
+            </Link>
         </div>
     )
 }
