@@ -1,60 +1,65 @@
 /* App.css */
 
 .App {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px auto;
   height: 100vh;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  background-image: url("https://images.unsplash.com/photo-1615800098799-0ccb261b1f92?auto=format&fit=crop&q=80&w=2810&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  background-size: cover; /* Adjusts the background image size to cover the entire container */
-  background-position: center; /* Centers the background image within the container */
-
+  background-image: url("https://i.pinimg.com/originals/17/3c/e5/173ce51d23d8ad84aac9c4594380a32b.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .App h1 {
   text-align: center;
-  font-family: 'Gabarito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 5rem;
   letter-spacing: 5px;
   text-transform: uppercase;
-  padding-top: 20px;
-  color: red;
+  padding-top: 5px;
+  color: white; /* Change text color to white for better visibility on the background */
 }
 
-.App h3 {
-  text-align: center;
-  font-family: 'Gabarito', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+
+.App h3{
+  color: white;
 }
 
 /* Header.js */
+body nav a {
+  color: white; /* Change the color to your desired color */
+
+}
+
+.App h4 {
+  color: black;
+  font-size: 20px;
+}
+
+body nav a:visited {
+  color: beige; /* Change the color to your desired visited link color */
+}
+
+
 .header {
   text-align: center;
-  font-family: 'Luxurious Script', cursive;
-  color: white;
-  height: 2em;
+  font-family:  'Roboto', sans-serif;
+  font-size: 36px; /* Increase the font size */
   margin: auto;
   margin-bottom: 25px;
   font-weight: bold;
   letter-spacing: 10px;
 }
 
-.header div {
-  display: inline-block;
-  padding: 10px;
-  font-size: 1.5rem;
-}
-
-.menu {
-  width: 90%;
-  margin: auto;
-  color: #353839;
-}
-
 /* MenuItem.js */
 .menu-item {
-  padding-left: 15px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto; /* Create a grid layout for menu items with labels */
+  gap: 10px;
 }
 
 .menu-item a {
@@ -67,44 +72,50 @@
 
 /* Show.js */
 .show-page-container {
-  padding-top: 20px;
-  width: 90%;
-  margin: auto;
-  background-color: beige;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Create a two-column layout for menu item details and reviews */
+  gap: 20px;
+  background-color: gray;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
+.show-page-container h3 {
+  font-size: 24px; /* Increase font size for menu item name */
+}
+
 /* Reviews.js */
 .reviews {
   border-top: 1px solid black;
+  padding: 10px;
+  border-radius: 5px; /* Add some styling to individual reviews */
 }
 
 /* NewReviewForm.js */
 .newReviewForm {
-  width: 40rem;
-  padding-left: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .newReviewTextbox {
-  width: 45em;
-  height: 20vh;
+  width: 100%;
+  height: 150px; /* Adjust height for the review input */
   border-radius: 10px;
+  padding: 10px;
 }
 
 .newReviewTitle {
-  width: 45em;
-  height: 2em;
+  width: 100%;
   border-radius: 5px;
+  padding: 10px;
 }
-
-
 
 /* Buttons */
 .button {
-  background-color: #007ACC;
-  color: white;
+  background-color: black;
+  color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -113,12 +124,12 @@
 }
 
 .button:hover {
-  background-color: #005BB7;
+  background-color: white;
 }
 
 /* Cards */
 .card {
-  background-color: white;
+  background-color: beige;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 20px;
@@ -127,7 +138,7 @@
 
 /* Forms */
 .form-container {
-  background-color: #f7f7f7;
+  background-color: beige;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -141,21 +152,92 @@
   margin-bottom: 10px;
 }
 
+/* User Profile and Reviews */
+.userProfileDiv {
+  margin: 0 3rem;
+}
+
+.userReviewsDiv {
+  padding: 15px;
+}
+
+/* Menu Container */
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with 300px minimum width */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: beige;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+  max-width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.menu-item h3 {
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.menu-item p {
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Menu Item Details */
+.menu-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item-details h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.menu-item-details p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
 /* Responsive Styling */
 @media (max-width: 768px) {
-  /* Adjust styles for smaller screens */
-  .button {
-    font-size: 14px;
+  .menu-container {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
   }
 
-  .card {
-    padding: 10px;
+  .menu-item {
+    width: 100%; /* Full width for menu items on small screens */
   }
 }
 
-.userProfileDiv{
-  margin:  0 3rem;
+/* Button Styles */
+.button {
+  background-color: white;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
 }
-.userReviewsDiv{
-  padding: 15px;
+
+.button:hover {
+  background-color: white;
 }
