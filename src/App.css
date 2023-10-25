@@ -35,7 +35,7 @@ body nav a {
 }
 
 .App h4 {
-  color: black;
+  color: white;
   font-size: 20px;
 }
 
@@ -129,7 +129,7 @@ body nav a:visited {
 
 /* Cards */
 .card {
-  background-color: beige;
+  background-color: gray;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 20px;
@@ -177,7 +177,7 @@ body nav a:visited {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 10px;
-  background-color: beige;
+  background-color: gray;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
