@@ -1,9 +1,11 @@
 import {useState} from 'react'
 const NewReviewForm = (props) => {
+    const loggedinUser = props.currentUser
+
     //state variable to hold form values
     const [newForm, setNewForm] = useState({
         text:'',
-        rating:'',
+        rating:''
     })
 
     //function to handle change 
@@ -25,6 +27,8 @@ const handleSubmit = (e) => {
             {/* form to create new review */}
             <form onSubmit={handleSubmit} className='newReviewFrom'> 
                 <label>Restaurant Name:</label><br/>
+                {/* <input type='hidden' name="author" value={loggedinUser} onChange={handleChange}/> */}
+
                 <input type='text' name="restaurantName" onChange={handleChange} className="newReviewTitle"/><br/>
 
                 <label>What's the name of the dish you ate?</label><br/>

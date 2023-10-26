@@ -169,8 +169,8 @@ const UserReviewsLogin = (props) => {
             {/* div with user profile info and reviews shown only if user is logged in */}
             {currentUser.username ?
                 <div className="loggedinDiv">
-                    <h2>User Reviews Shown Once Logged In</h2>
-                    <h4>{currentUser.username}</h4>
+                    <h2> Hi {currentUser.username} !</h2>
+                    <h4>These are the dishes you've tried so far...</h4>
 
                     {userReviews ?
                         userReviews.map((x) => {
@@ -185,7 +185,6 @@ const UserReviewsLogin = (props) => {
                         : <p>Loading...</p>
                     }
 
-                    <NewReviewForm addReview={props.addReview} deleteAll={props.deleteAll} currentUser={currentUser} />
                 </div>
                 : null
             }

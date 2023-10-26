@@ -26,6 +26,7 @@
 
 .App h3{
   color: white;
+  text-align: center;
 }
 
 /* Header.js */
@@ -35,7 +36,7 @@ body nav a {
 }
 
 .App h4 {
-  color: white;
+  color: #353839;;
   font-size: 20px;
 }
 
@@ -152,6 +153,10 @@ body nav a:visited {
   margin-bottom: 10px;
 }
 
+.new-item-form input{
+  margin: 5px;
+
+}
 /* User Profile and Reviews */
 .userProfileDiv {
   margin: 0 3rem;
@@ -240,4 +245,29 @@ body nav a:visited {
 
 .button:hover {
   background-color: white;
+}
+
+/* about page */
+.aboutDiv{
+  background-color: beige;
+  width: 80vw;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-align:justify;
+  gap: 10px;
+  justify-content: center;
+
+}
+
+/* profile page */
+.loggedinDiv{
+  background-color: beige;
+  width: 80vw;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-align:justify;
+}
+
+button{
+  margin: 10px;
 }

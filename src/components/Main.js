@@ -1,5 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import About from '../pages/About'
 import Index from '../pages/Index'
 import Show from '../pages/Show'
 import Edit from '../pages/Edit'
@@ -91,16 +92,19 @@ const Main = (props) => {
             {/* Route to show page to view all reviews
             <Route path='/reviews' element={<Show items={menuItems} reviews={reviews}  addReview={addReview} />}/> */}
 
+            <Route path="/about" element={<About/>} />
+
             {/* Route to show page */}
             <Route path='/:id' element={<Show items={menuItems} reviews={reviews} getReviews={getReviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
 
             {/* {Route to show edit page} */}
             <Route path='/edit/:id' element={<Edit editReview={editReview} reviews={reviews} menuItems={menuItems}/>}/>
-            {/* Route to view individual reviews
-            <Route path='/:id' element={<SingleReviewShow reviews={reviews} deleteReview={deleteReview}/>}/> */}
 
             {/* Route to user profile page with just their reviews */}
             <Route path='/profile' element={<UserReviewsLogin reviews={reviews}  addReview={addReview} deleteReview={deleteReview} editReviews={editReview}/>}/>
+
+
+
         </Routes>
     )
      }
