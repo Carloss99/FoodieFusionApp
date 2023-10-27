@@ -5,8 +5,9 @@ import Edit from './Edit'
 import NewReviewForm from '../components/NewReviewForm'
 
 
-const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
+// const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
 // const URL = 'http://localhost:4000/api/reviews'
+const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api'
 
 const UserReviewsLogin = (props) => {
 
