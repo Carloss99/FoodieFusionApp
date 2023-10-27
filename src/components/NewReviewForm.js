@@ -1,7 +1,5 @@
 import {useState} from 'react'
 const NewReviewForm = (props) => {
-    const loggedinUser = props.currentUser
-
     //state variable to hold form values
     const [newForm, setNewForm] = useState({
         text:'',

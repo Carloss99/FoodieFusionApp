@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import Edit from './Edit'
-import NewReviewForm from '../components/NewReviewForm'
 
+const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/userreviews'
 
-// const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api/reviews'
-// const URL = 'http://localhost:4000/api/reviews'
-const URL = 'https://foodiefusion-69e8424eead0.herokuapp.com/api'
 
 const UserReviewsLogin = (props) => {
 
@@ -66,7 +62,7 @@ const UserReviewsLogin = (props) => {
         }
         setUsername('')
         setPassword('')
-        axios.post('http://localhost:4000/api/userreviews/createaccount', userObj).then((response) => {
+        axios.post('https://foodiefusion-69e8424eead0.herokuapp.com/api/userreviews/createaccount', userObj).then((response) => {
             if (response.data.username) {
                 console.log(response);
                 setToggleError(false)
@@ -101,12 +97,13 @@ const UserReviewsLogin = (props) => {
         }
         setUsername('')
         setPassword('')
-        axios.put('http://localhost:4000/api/userreviews/login', userObj).then((response) => {
+        axios.put('https://foodiefusion-69e8424eead0.herokuapp.com/api/userreviews/login', userObj).then((response) => {
             if (response.data.username) {
                 // console.log(response);
                 setToggleError(false)
                 setErrorMessage('')
                 setCurrentUser(response.data)
+                console.log(currentUser)
                 handleToggleLogout()
             } else {
                 // console.log(response);
@@ -115,6 +112,9 @@ const UserReviewsLogin = (props) => {
             }
         })
     }
+
+    //use effect(setup, dependencies)
+    //dependency array tells hook to ttrigger only when the dependency array changes
 
     useEffect(() => { getUserReviews() },[currentUser])
 
