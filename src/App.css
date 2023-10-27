@@ -23,6 +23,32 @@
   color: white; /* Change text color to white for better visibility on the background */
 }
 
+h2{
+  color: white;
+}
+
+div{
+  background-color:gray;
+  color: white;
+  
+}
+
+label{
+  color: white;
+  font-size: 30px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  
+
+}
+
+input{
+  height: 40px;
+  white-space: pre-wrap;
+}
 
 .App h3{
   color: white;
@@ -37,6 +63,10 @@ body nav a {
 .App h4 {
   color: white;
   font-size: 20px;
+}
+
+.App h5{
+  color: white;
 }
 
 body nav a:visited {
@@ -115,7 +145,7 @@ body nav a:visited {
 /* Buttons */
 .button {
   background-color: black;
-  color: black;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
